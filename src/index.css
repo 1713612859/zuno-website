@@ -6,7 +6,7 @@
 
 :root {
   font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  color: #10231a;
+  color: #1c1a26;
   background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -43,25 +43,33 @@ textarea {
   @apply border-y border-slate-200 bg-white;
 }
 
-/* Clover-style soft green hero wash */
-.hero-clover {
+/* iMin-style violet hero panel */
+.hero-imin {
   background:
-    radial-gradient(60% 70% at 85% 18%, rgba(21, 160, 90, 0.1) 0%, transparent 60%),
-    radial-gradient(45% 55% at 10% 90%, rgba(21, 160, 90, 0.08) 0%, transparent 60%),
-    linear-gradient(180deg, #f3faf5 0%, #ffffff 70%);
+    radial-gradient(60% 90% at 50% -10%, rgba(255, 255, 255, 0.28) 0%, transparent 55%),
+    radial-gradient(40% 60% at 12% 20%, rgba(169, 142, 246, 0.55) 0%, transparent 60%),
+    radial-gradient(40% 60% at 88% 18%, rgba(140, 108, 240, 0.5) 0%, transparent 60%),
+    linear-gradient(160deg, #7d5bef 0%, #6c3bf5 45%, #5326c4 100%);
 }
 
-/* Soft rounded panel that holds the hero product showcase */
-.showcase-panel {
-  background:
-    radial-gradient(80% 80% at 50% 0%, rgba(255, 255, 255, 0.7) 0%, transparent 70%),
-    linear-gradient(150deg, #1bb267 0%, #0f8a4d 55%, #0b6f3e 100%);
+/* soft arch that dips down from the top of the hero, like iMin */
+.hero-arch::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  z-index: 1;
+  width: 130%;
+  height: 90px;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -85,4 +93,67 @@ textarea {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+/* Scroll-reveal: fade + rise when entering viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Infinite logo marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Ambient glow blob */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track,
+  .animate-float {
+    animation: none;
+  }
 }

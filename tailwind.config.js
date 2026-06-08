@@ -8,38 +8,39 @@ export default {
         sans: ['"DM Sans"', 'system-ui', 'sans-serif']
       },
       colors: {
-        // Clover green (brand)
+        // iMin violet (brand)
         brand: {
-          50: '#e9f8ef',
-          100: '#c8edd6',
-          200: '#9fdcb6',
-          500: '#15a05a',
-          600: '#0f8a4d',
-          700: '#0b6f3e'
+          50: '#f2eefe',
+          100: '#e4dafd',
+          200: '#c8b6fb',
+          300: '#a98ef6',
+          500: '#6c3bf5',
+          600: '#5a2fd6',
+          700: '#4a26b0'
         },
-        // Remap legacy "navy"/"leaf" to the Clover palette so existing
+        // Remap legacy "navy"/"leaf" to the violet palette so existing
         // classes restyle automatically.
         navy: {
-          50: '#e9f8ef',
-          100: '#c8edd6',
-          500: '#15a05a',
-          700: '#0f8a4d',
-          900: '#10231a'
+          50: '#f2eefe',
+          100: '#e4dafd',
+          500: '#6c3bf5',
+          700: '#5a2fd6',
+          900: '#1c1a26'
         },
         leaf: {
-          50: '#e9f8ef',
-          100: '#c8edd6',
-          600: '#15a05a'
+          50: '#f2eefe',
+          100: '#e4dafd',
+          600: '#6c3bf5'
         },
-        ink: '#10231a',
+        ink: '#1c1a26',
         slate: {
-          600: '#41524a'
+          600: '#4a4a55'
         }
       },
       boxShadow: {
-        soft: '0 18px 40px -12px rgba(16, 35, 26, 0.16)',
-        card: '0 2px 5px -1px rgba(16, 35, 26, 0.08), 0 1px 3px -1px rgba(0, 0, 0, 0.06)',
-        lift: '0 16px 30px -8px rgba(21, 160, 90, 0.22), 0 8px 16px -8px rgba(16, 35, 26, 0.18)'
+        soft: '0 22px 48px -16px rgba(28, 26, 38, 0.22)',
+        card: '0 1px 2px rgba(28, 26, 38, 0.06), 0 8px 24px -12px rgba(28, 26, 38, 0.12)',
+        lift: '0 20px 40px -12px rgba(108, 59, 245, 0.28), 0 8px 18px -10px rgba(28, 26, 38, 0.2)'
       }
     }
   },

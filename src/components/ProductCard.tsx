@@ -8,14 +8,14 @@ export default function ProductCard({ name, brand, blurb, specs, featured, image
         featured ? 'border-brand-500/40 ring-1 ring-brand-500/20' : 'border-slate-200'
       }`}
     >
-      {/* Stock photo preview — replace with a real product photo later */}
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 to-brand-50">
+      {/* Product image */}
+      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-white">
         {image ? (
           <img
             src={image}
             alt={name}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="flex flex-col items-center gap-2 text-slate-400">
@@ -23,9 +23,11 @@ export default function ProductCard({ name, brand, blurb, specs, featured, image
             <span className="text-xs font-medium">Product image</span>
           </div>
         )}
-        <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-brand-600 shadow-sm ring-1 ring-inset ring-slate-200/60">
-          {brand}
-        </span>
+        {brand ? (
+          <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-brand-600 shadow-sm ring-1 ring-inset ring-slate-200/60">
+            {brand}
+          </span>
+        ) : null}
         {featured ? (
           <span className="absolute right-3 top-3 rounded-full bg-brand-500 px-2.5 py-1 text-xs font-semibold text-white">
             Popular

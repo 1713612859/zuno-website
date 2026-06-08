@@ -1,12 +1,31 @@
-import { Cctv, Monitor, ScanLine } from 'lucide-react';
+import { Boxes, CreditCard, Laptop, Receipt, ScanLine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import swan2Img from '../assets/products/swan2.webp';
+import m2maxImg from '../assets/products/m2max.webp';
+import d1Img from '../assets/products/d1.webp';
+import falcon2Img from '../assets/products/falcon2.webp';
+import libra1Img from '../assets/products/libra1.webp';
+import pegasus1Img from '../assets/products/pegasus1.webp';
+import gemini1seImg from '../assets/products/gemini1se.webp';
+import swift2Img from '../assets/products/swift2.png';
+import cashDrawerImg from '../assets/products/cashdrawer.jpg';
+import scannerImg from '../assets/products/scanner.webp';
+import kozenHandheldImg from '../assets/products/kozen-handheld.jpg';
+import kozenHandheld2Img from '../assets/products/kozen-handheld2.jpg';
+import kozenHandheld3Img from '../assets/products/kozen-handheld3.jpg';
+import thermalPaperImg from '../assets/products/thermal-paper.jpg';
+import labelPaperImg from '../assets/products/label-paper.jpg';
+import desktopPcImg from '../assets/products/desktop-pc.jpg';
+import laptopImg from '../assets/products/laptop.jpg';
 
 export type Product = {
   name: string;
-  brand: string;
+  // Only iMin and Nebullar are used as product brands. PCs / accessories /
+  // consumables have no brand — omit this field and the badge is hidden.
+  brand?: string;
   blurb: string;
   specs: string[];
-  // One image per model. Currently temporary stock photos — replace each
+  // One image per item. Currently temporary stock photos — replace each
   // with the real product photo (URL or local src/assets/ path) one by one.
   image: string;
   featured?: boolean;
@@ -22,183 +41,233 @@ export type ProductCategory = {
   products: Product[];
 };
 
-const U = (id: string) => `https://images.unsplash.com/${id}?w=800&q=80&auto=format&fit=crop`;
+const U = (id: string) => `https://images.unsplash.com/${id}?w=900&q=80&auto=format&fit=crop`;
 
-// Hero showcase image (replace with a real iMin POS photo later).
-export const heroImage = U('photo-1556740758-90de374c12ad');
+export type HeroSlide = {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  images: string[];
+};
+
+export const heroSlides: HeroSlide[] = [
+  {
+    eyebrow: 'POS Series',
+    title: 'Smart POS for every counter',
+    subtitle:
+      'Android all-in-one terminals, tablets, handhelds, and cash drawers for retail, dining, and service businesses.',
+    images: [d1Img, swan2Img, m2maxImg]
+  },
+  {
+    eyebrow: 'Fintech Series',
+    title: 'Accept payments, anywhere',
+    subtitle:
+      'Handheld payment terminals and card readers with VISA, Mastercard, QRPH, WeChat Pay, and Alipay support.',
+    images: [kozenHandheldImg, kozenHandheld2Img, kozenHandheld3Img]
+  },
+  {
+    eyebrow: 'Warehouse Series',
+    title: 'Rugged devices for the warehouse',
+    subtitle:
+      'PDAs and barcode scanners built for scanning, picking, tracking, and stock operations.',
+    images: [swift2Img, scannerImg]
+  }
+];
+
+export type Industry = {
+  title: string;
+  blurb: string;
+  image: string;
+};
+
+export const industries: Industry[] = [
+  {
+    title: 'Retail',
+    blurb: 'Fast checkout, inventory, barcode scanning, and member management.',
+    image: U('photo-1567521464027-f127ff144326')
+  },
+  {
+    title: 'Food & Beverages',
+    blurb: 'Order taking, kitchen printing, table service, billing, and payments.',
+    image: U('photo-1552566626-52f8b828add9')
+  },
+  {
+    title: 'Logistics & Warehouse',
+    blurb: 'Rugged handhelds for scanning, tracking, and stock operations.',
+    image: U('photo-1553413077-190dd305871c')
+  },
+  {
+    title: 'Supermarkets',
+    blurb: 'High-volume checkout lanes, scales, and label printing.',
+    image: U('photo-1578916171728-46686eac8d58')
+  },
+  {
+    title: 'Services',
+    blurb: 'Bookings, billing, and payments for salons, clinics, and shops.',
+    image: U('photo-1542838132-92c53300491e')
+  }
+];
 
 export const productCategories: ProductCategory[] = [
   {
     id: 'pos',
-    title: 'POS Terminals',
+    title: 'POS Series',
     tagline: 'Main product line',
     description:
-      'iMin Android smart POS terminals for retail checkout, restaurants, and service counters. Built-in printer options, large touch displays, and stable daily operation.',
+      'Android all-in-one terminals, tablets, handhelds, and cash drawers for retail checkout, restaurants, and service counters.',
     icon: ScanLine,
-    brands: ['iMin'],
+    brands: ['iMin', 'Nebullar'],
     products: [
-      {
-        name: 'iMin D1',
-        brand: 'iMin',
-        blurb: 'Compact handheld smart POS for mobile checkout and table-side ordering.',
-        specs: ['Android', '5.5" touch', 'Built-in scanner'],
-        image: U('photo-1556740758-90de374c12ad'),
-        featured: true
-      },
-      {
-        name: 'iMin D1 Pro',
-        brand: 'iMin',
-        blurb: 'Upgraded handheld terminal with stronger performance and longer battery.',
-        specs: ['Android', '6" touch', 'Long battery'],
-        image: U('photo-1556742502-ec7c0e9f34b1')
-      },
-      {
-        name: 'iMin D2',
-        brand: 'iMin',
-        blurb: 'Portable POS with optional built-in receipt printer for on-the-go sales.',
-        specs: ['Android', '58mm printer', 'Portable'],
-        image: U('photo-1601598851547-4302969d0614')
-      },
-      {
-        name: 'iMin D3',
-        brand: 'iMin',
-        blurb: 'All-in-one handheld for fast retail and food service transactions.',
-        specs: ['Android', 'Touch display', '4G / Wi-Fi'],
-        image: U('photo-1563013544-824ae1b704d3')
-      },
-      {
-        name: 'iMin D4',
-        brand: 'iMin',
-        blurb: 'Rugged mobile terminal for high-volume daily checkout.',
-        specs: ['Android', 'Durable build', 'Fast scan'],
-        image: U('photo-1572584642822-6f8de0243c93')
-      },
-      {
-        name: 'iMin Swan 1',
-        brand: 'iMin',
-        blurb: 'Desktop dual-screen POS for counter checkout with customer display.',
-        specs: ['Dual screen', 'Built-in printer', 'Counter use'],
-        image: U('photo-1580048915913-4f8f5cb481c4')
-      },
       {
         name: 'iMin Swan 2',
         brand: 'iMin',
-        blurb: 'Modular desktop POS supporting flexible peripheral connections.',
-        specs: ['Modular', 'Large display', 'Expandable'],
-        image: U('photo-1565514020179-026b92b84bb6')
-      },
-      {
-        name: 'iMin M2-202',
-        brand: 'iMin',
-        blurb: 'Compact desktop terminal with integrated thermal printer.',
-        specs: ['80mm printer', 'Touch screen', 'Counter use'],
-        image: U('photo-1559526324-4b87b5e36e44')
+        blurb: 'Dual-screen desktop POS for counter checkout and customer display.',
+        specs: ['Android', 'Dual screen', 'Built-in printer'],
+        image: swan2Img,
+        featured: true
       },
       {
         name: 'iMin M2 Max',
         brand: 'iMin',
-        blurb: 'High-performance desktop POS for busy retail and dining counters.',
-        specs: ['High performance', 'Large screen', 'Built-in printer'],
-        image: U('photo-1604754742629-3e5728249d73')
+        blurb: 'High-performance desktop tablet POS for busy retail and dining counters.',
+        specs: ['Android', 'Large screen', 'Payment ready'],
+        image: m2maxImg
       },
       {
-        name: 'iMin Falcon 1',
+        name: 'iMin D1',
         brand: 'iMin',
-        blurb: 'Stationary POS workstation for full-service checkout setups.',
-        specs: ['Workstation', 'Multi-port', 'Stable operation'],
-        image: U('photo-1556745757-8d76bdb6984b')
+        blurb: 'Compact tablet POS for fast checkout and table-side ordering.',
+        specs: ['Android', 'Portable', 'Scanner'],
+        image: d1Img
+      },
+      {
+        name: 'iMin Falcon 2',
+        brand: 'iMin',
+        blurb: 'All-in-one POS with built-in receipt printer in a compact body.',
+        specs: ['Android', 'Built-in printer', 'Compact'],
+        image: falcon2Img
+      },
+      {
+        name: 'Nebullar Libra 1',
+        brand: 'Nebullar',
+        blurb: 'Smart tablet terminal — works as desktop, tablet, or all-in-one.',
+        specs: ['Android', 'Tablet', 'All-in-one'],
+        image: libra1Img
+      },
+      {
+        name: 'Nebullar Pegasus 1',
+        brand: 'Nebullar',
+        blurb: 'Self-service kiosk for ordering and checkout with NFC payments.',
+        specs: ['Kiosk', 'Self-service', 'NFC'],
+        image: pegasus1Img
+      },
+      {
+        name: 'Nebullar Gemini 1 SE',
+        brand: 'Nebullar',
+        blurb: 'Entry-level smart ECR for everyday retail and small stores.',
+        specs: ['Android', 'Dual screen', 'ECR'],
+        image: gemini1seImg
+      },
+      {
+        name: 'Cash Drawer',
+        blurb: 'Durable cash drawer that connects to POS receipt printers.',
+        specs: ['Metal build', 'RJ11 trigger', 'Multi-slot'],
+        image: cashDrawerImg
       }
     ]
   },
   {
-    id: 'surveillance',
-    title: 'Security & Surveillance',
-    tagline: 'Dahua · Hikvision',
+    id: 'fintech',
+    title: 'Fintech Series',
+    tagline: 'Payments',
     description:
-      'Cameras and recorders from Dahua and Hikvision for store security, monitoring, and loss prevention.',
-    icon: Cctv,
-    brands: ['Dahua', 'Hikvision'],
+      'Handheld payment terminals and card readers supporting card, QR, and e-wallet payments with secure settlement.',
+    icon: CreditCard,
+    brands: ['iMin', 'Kozen'],
     products: [
       {
-        name: 'Dahua IP Bullet Camera',
-        brand: 'Dahua',
-        blurb: 'Outdoor HD bullet camera for entrances and perimeter monitoring.',
-        specs: ['HD / 4MP', 'Night vision', 'Weatherproof'],
-        image: U('photo-1557597774-9d273605dfa9')
+        name: 'Kozen Payment POS',
+        brand: 'Kozen',
+        blurb: 'Handheld smart payment POS with dual screen for card, QR, and NFC.',
+        specs: ['Card / QR / NFC', 'Dual screen', 'Android'],
+        image: kozenHandheldImg
       },
       {
-        name: 'Dahua Dome Camera',
-        brand: 'Dahua',
-        blurb: 'Indoor dome camera for retail floor and counter coverage.',
-        specs: ['HD', 'Wide angle', 'Indoor'],
-        image: U('photo-1558002038-1055907df827')
-      },
-      {
-        name: 'Dahua NVR Recorder',
-        brand: 'Dahua',
-        blurb: 'Network video recorder for multi-camera storage and playback.',
-        specs: ['Multi-channel', 'HDD storage', 'Remote view'],
-        image: U('photo-1610552050890-fe99536c2615')
-      },
-      {
-        name: 'Hikvision ColorVu Camera',
-        brand: 'Hikvision',
-        blurb: 'Full-color night vision camera for clear 24-hour monitoring.',
-        specs: ['Full-color night', 'HD', 'Weatherproof'],
-        image: U('photo-1591453089816-0fbb971b454c')
-      },
-      {
-        name: 'Hikvision Dome Camera',
-        brand: 'Hikvision',
-        blurb: 'Compact indoor dome for store interiors and stockrooms.',
-        specs: ['HD', 'Discreet', 'Indoor'],
-        image: U('photo-1572569511254-d8f925fe2cbb')
-      },
-      {
-        name: 'Hikvision NVR Recorder',
-        brand: 'Hikvision',
-        blurb: 'Network recorder with mobile remote viewing for store owners.',
-        specs: ['Multi-channel', 'Mobile app', 'HDD storage'],
-        image: U('photo-1517248135467-4c7edcad34c4')
+        name: 'iMin Swift 2',
+        brand: 'iMin',
+        blurb: 'Handheld mPOS for card, QR, and contactless payments on the go.',
+        specs: ['Card / QR / NFC', 'Android', '4G'],
+        image: swift2Img
       }
     ]
   },
   {
-    id: 'displays',
-    title: 'Monitors & Computers',
-    tagline: 'AOC',
+    id: 'warehouse',
+    title: 'Warehouse Series',
+    tagline: 'PDA',
     description:
-      'AOC monitors and business computers for back office, customer displays, and management workstations.',
-    icon: Monitor,
-    brands: ['AOC'],
+      'Rugged PDAs and barcode scanners for picking, receiving, inventory counts, and stock movement.',
+    icon: Boxes,
+    brands: ['Nebullar'],
     products: [
       {
-        name: 'AOC 24" Monitor',
-        brand: 'AOC',
-        blurb: 'Full HD monitor for office and back-of-house workstations.',
-        specs: ['24"', 'Full HD', 'VGA / HDMI'],
-        image: U('photo-1527443224154-c4a3942d3acf')
+        name: 'Rugged PDA',
+        brand: 'iMin',
+        blurb: 'iMin Swift handheld data terminal for scanning, picking, and tracking.',
+        specs: ['Android', 'Rugged', '1D / 2D scan'],
+        image: swift2Img
       },
       {
-        name: 'AOC 27" Monitor',
-        brand: 'AOC',
-        blurb: 'Larger display for management dashboards and reporting.',
-        specs: ['27"', 'Full HD', 'HDMI'],
-        image: U('photo-1593640408182-31c70c8268f5')
+        name: 'Barcode Scanner',
+        blurb: 'Fast 1D/2D handheld scanner for receiving and stock operations.',
+        specs: ['1D / 2D', 'USB', 'Durable'],
+        image: scannerImg
+      }
+    ]
+  },
+  {
+    id: 'desktop',
+    title: 'Desktop & Computers',
+    tagline: 'Computers',
+    description:
+      'Desktop computers and laptops for back office, management, and business software.',
+    icon: Laptop,
+    brands: [],
+    products: [
+      {
+        name: 'Desktop PC',
+        blurb: 'Reliable desktop unit for store management and daily software.',
+        specs: ['Desktop', 'Business use', 'Expandable'],
+        image: desktopPcImg
       },
       {
-        name: 'AOC All-in-One PC',
-        brand: 'AOC',
-        blurb: 'Space-saving all-in-one computer for counters and offices.',
-        specs: ['All-in-one', 'Compact', 'Business use'],
-        image: U('photo-1547082299-de196ea013d6')
+        name: 'Laptop',
+        blurb: 'Portable laptop for back-office work and reporting.',
+        specs: ['Portable', 'Business use', 'Wi-Fi'],
+        image: laptopImg
+      }
+    ]
+  },
+  {
+    id: 'consumables',
+    title: 'Consumables',
+    tagline: 'Paper & labels',
+    description:
+      'Thermal receipt paper and label paper for POS printers, scales, and label printers.',
+    icon: Receipt,
+    brands: [],
+    products: [
+      {
+        name: 'Thermal Paper',
+        blurb: 'Receipt rolls for POS and payment terminal printers.',
+        specs: ['57mm / 80mm', 'BPA-free', 'Bulk supply'],
+        image: thermalPaperImg
       },
       {
-        name: 'AOC Business Desktop',
-        brand: 'AOC',
-        blurb: 'Reliable desktop unit for daily store management software.',
-        specs: ['Desktop', 'Expandable', 'Business use'],
-        image: U('photo-1517336714731-489689fd1ca8')
+        name: 'Label Paper',
+        blurb: 'Adhesive label rolls for price tags and barcode printing.',
+        specs: ['Multiple sizes', 'Strong adhesive', 'Bulk supply'],
+        image: labelPaperImg
       }
     ]
   }

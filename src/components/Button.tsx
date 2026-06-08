@@ -3,16 +3,19 @@ import { ArrowRight } from 'lucide-react';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'purple' | 'outline' | 'onDark';
   showIcon?: boolean;
 };
 
 const variants = {
-  primary:
-    'bg-brand-500 text-white shadow-[0_6px_16px_-4px_rgba(21,160,90,0.55)] hover:bg-brand-600 hover:-translate-y-0.5',
-  secondary: 'bg-ink text-white hover:bg-[#1b3a2c] hover:-translate-y-0.5',
+  // black pill — iMin's default "Learn more" CTA
+  primary: 'bg-ink text-white hover:bg-[#2e2b3c] hover:-translate-y-0.5',
+  purple:
+    'bg-brand-500 text-white shadow-[0_8px_20px_-6px_rgba(108,59,245,0.6)] hover:bg-brand-600 hover:-translate-y-0.5',
   outline:
-    'bg-white text-brand-700 ring-1 ring-inset ring-brand-200 hover:bg-brand-50 hover:ring-brand-500 hover:-translate-y-0.5'
+    'bg-white text-ink ring-1 ring-inset ring-slate-300 hover:ring-ink hover:-translate-y-0.5',
+  // for use on the violet hero
+  onDark: 'bg-white/10 text-white ring-1 ring-inset ring-white/60 backdrop-blur hover:bg-white/20'
 };
 
 export default function Button({

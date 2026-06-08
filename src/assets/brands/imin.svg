@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect x="6" y="18" width="24" height="24" rx="7" fill="#1c1a26"/>
+  <circle cx="18" cy="24.5" r="2.6" fill="#fff"/>
+  <rect x="15.4" y="29" width="5.2" height="9" rx="2.2" fill="#fff"/>
+  <text x="40" y="39" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700" fill="#1c1a26">iMin</text>
+</svg>
