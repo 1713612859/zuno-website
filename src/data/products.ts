@@ -1,8 +1,6 @@
 import { Boxes, CreditCard, Laptop, Receipt, ScanLine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import swan2Img from '../assets/products/swan2.webp';
-import m2maxImg from '../assets/products/m2max.webp';
-import d1Img from '../assets/products/d1.webp';
 import falcon2Img from '../assets/products/falcon2.webp';
 import libra1Img from '../assets/products/libra1.webp';
 import pegasus1Img from '../assets/products/pegasus1.webp';
@@ -56,7 +54,7 @@ export const heroSlides: HeroSlide[] = [
     title: 'Smart POS for every counter',
     subtitle:
       'Android all-in-one terminals, tablets, handhelds, and cash drawers for retail, dining, and service businesses.',
-    images: [d1Img, swan2Img, m2maxImg]
+    images: [libra1Img, pegasus1Img, gemini1seImg]
   },
   {
     eyebrow: 'Fintech Series',
@@ -119,6 +117,30 @@ export const productCategories: ProductCategory[] = [
     brands: ['iMin', 'Nebullar'],
     products: [
       {
+        name: 'Nebullar Libra 1',
+        brand: 'Nebullar',
+        blurb: 'Smart tablet terminal — works as desktop, tablet, or all-in-one.',
+        specs: ['Android', 'Tablet', 'All-in-one'],
+        image: libra1Img,
+        featured: true
+      },
+      {
+        name: 'Nebullar Pegasus 1',
+        brand: 'Nebullar',
+        blurb: 'Self-service kiosk for ordering and checkout with NFC payments.',
+        specs: ['Kiosk', 'Self-service', 'NFC'],
+        image: pegasus1Img,
+        featured: true
+      },
+      {
+        name: 'Nebullar Gemini 1 SE',
+        brand: 'Nebullar',
+        blurb: 'Entry-level smart ECR for everyday retail and small stores.',
+        specs: ['Android', 'Dual screen', 'ECR'],
+        image: gemini1seImg,
+        featured: true
+      },
+      {
         name: 'iMin Swan 2',
         brand: 'iMin',
         blurb: 'Dual-screen desktop POS for counter checkout and customer display.',
@@ -127,46 +149,11 @@ export const productCategories: ProductCategory[] = [
         featured: true
       },
       {
-        name: 'iMin M2 Max',
-        brand: 'iMin',
-        blurb: 'High-performance desktop tablet POS for busy retail and dining counters.',
-        specs: ['Android', 'Large screen', 'Payment ready'],
-        image: m2maxImg
-      },
-      {
-        name: 'iMin D1',
-        brand: 'iMin',
-        blurb: 'Compact tablet POS for fast checkout and table-side ordering.',
-        specs: ['Android', 'Portable', 'Scanner'],
-        image: d1Img
-      },
-      {
         name: 'iMin Falcon 2',
         brand: 'iMin',
         blurb: 'All-in-one POS with built-in receipt printer in a compact body.',
         specs: ['Android', 'Built-in printer', 'Compact'],
         image: falcon2Img
-      },
-      {
-        name: 'Nebullar Libra 1',
-        brand: 'Nebullar',
-        blurb: 'Smart tablet terminal — works as desktop, tablet, or all-in-one.',
-        specs: ['Android', 'Tablet', 'All-in-one'],
-        image: libra1Img
-      },
-      {
-        name: 'Nebullar Pegasus 1',
-        brand: 'Nebullar',
-        blurb: 'Self-service kiosk for ordering and checkout with NFC payments.',
-        specs: ['Kiosk', 'Self-service', 'NFC'],
-        image: pegasus1Img
-      },
-      {
-        name: 'Nebullar Gemini 1 SE',
-        brand: 'Nebullar',
-        blurb: 'Entry-level smart ECR for everyday retail and small stores.',
-        specs: ['Android', 'Dual screen', 'ECR'],
-        image: gemini1seImg
       },
       {
         name: 'Cash Drawer',
