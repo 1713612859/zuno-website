@@ -43,13 +43,13 @@ textarea {
   @apply border-y border-slate-200 bg-white;
 }
 
-/* iMin-style violet hero panel */
+/* Zuno red hero panel */
 .hero-imin {
   background:
     radial-gradient(60% 90% at 50% -10%, rgba(255, 255, 255, 0.28) 0%, transparent 55%),
-    radial-gradient(40% 60% at 12% 20%, rgba(169, 142, 246, 0.55) 0%, transparent 60%),
-    radial-gradient(40% 60% at 88% 18%, rgba(140, 108, 240, 0.5) 0%, transparent 60%),
-    linear-gradient(160deg, #7d5bef 0%, #6c3bf5 45%, #5326c4 100%);
+    radial-gradient(40% 60% at 12% 20%, rgba(255, 120, 100, 0.55) 0%, transparent 60%),
+    radial-gradient(40% 60% at 88% 18%, rgba(220, 80, 60, 0.5) 0%, transparent 60%),
+    linear-gradient(160deg, #e8362d 0%, #E2231A 45%, #b81c14 100%);
 }
 
 /* soft arch that dips down from the top of the hero, like iMin */

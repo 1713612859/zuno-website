@@ -8,29 +8,29 @@ export default {
         sans: ['"DM Sans"', 'system-ui', 'sans-serif']
       },
       colors: {
-        // iMin violet (brand)
+        // Zuno red (brand)
         brand: {
-          50: '#f2eefe',
-          100: '#e4dafd',
-          200: '#c8b6fb',
-          300: '#a98ef6',
-          500: '#6c3bf5',
-          600: '#5a2fd6',
-          700: '#4a26b0'
+          50: '#fff0f0',
+          100: '#ffd6d6',
+          200: '#ffadad',
+          300: '#ff7b7b',
+          500: '#E2231A',
+          600: '#c41e16',
+          700: '#a01910'
         },
-        // Remap legacy "navy"/"leaf" to the violet palette so existing
+        // Remap legacy "navy"/"leaf" to the red palette so existing
         // classes restyle automatically.
         navy: {
-          50: '#f2eefe',
-          100: '#e4dafd',
-          500: '#6c3bf5',
-          700: '#5a2fd6',
+          50: '#fff0f0',
+          100: '#ffd6d6',
+          500: '#E2231A',
+          700: '#c41e16',
           900: '#1c1a26'
         },
         leaf: {
-          50: '#f2eefe',
-          100: '#e4dafd',
-          600: '#6c3bf5'
+          50: '#fff0f0',
+          100: '#ffd6d6',
+          600: '#E2231A'
         },
         ink: '#1c1a26',
         slate: {
@@ -40,7 +40,7 @@ export default {
       boxShadow: {
         soft: '0 22px 48px -16px rgba(28, 26, 38, 0.22)',
         card: '0 1px 2px rgba(28, 26, 38, 0.06), 0 8px 24px -12px rgba(28, 26, 38, 0.12)',
-        lift: '0 20px 40px -12px rgba(108, 59, 245, 0.28), 0 8px 18px -10px rgba(28, 26, 38, 0.2)'
+        lift: '0 20px 40px -12px rgba(226, 35, 26, 0.28), 0 8px 18px -10px rgba(28, 26, 38, 0.2)'
       }
     }
   },

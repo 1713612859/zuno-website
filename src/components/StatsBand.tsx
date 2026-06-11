@@ -3,19 +3,18 @@ import CountUp from './CountUp';
 type Stat = { value?: number; suffix?: string; display?: string; label: string };
 
 const stats: Stat[] = [
-  { value: 6, suffix: '+', label: 'Brands distributed' },
-  { value: 8, suffix: '+', label: 'Trusted clients' },
-  { value: 5, label: 'Product lines' },
-  { display: '24/7', label: 'Support & after-sales' }
+  { value: 10, suffix: '+', label: 'Brands distributed' },
+  { value: 1000, suffix: '+', label: 'Trusted clients' },
+  { value: 200, suffix: '+', label: 'Product lines' }
 ];
 
 export default function StatsBand() {
   return (
     <section className="hero-imin relative overflow-hidden py-16">
       <div className="glow-blob -left-16 top-0 h-64 w-64 bg-white/20" />
-      <div className="glow-blob -right-10 bottom-0 h-64 w-64 bg-[#a98ef6]/40" />
+      <div className="glow-blob -right-10 bottom-0 h-64 w-64 bg-[#ff7b7b]/40" />
       <div className="container-shell relative">
-        <div className="grid grid-cols-2 gap-8 text-center text-white lg:grid-cols-4">
+        <div className="grid grid-cols-3 gap-8 text-center text-white">
           {stats.map((stat) => (
             <div key={stat.label} className="reveal">
               <div className="font-display text-4xl font-extrabold tracking-[-0.02em] sm:text-5xl">
